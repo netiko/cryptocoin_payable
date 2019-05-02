@@ -104,6 +104,16 @@ RSpec.configure do |config|
         bch_config.master_public_key = 'xpub69m5Zouf7QU8wRjLfQX2F5VtgyTNJ45Xy6xg6SbrynM5D31U7uowkwe55y569b5Aonz9LJySajB1qkdkhFCdLVQE6U51VB6aGMeejKafAET'
         # rubocop:enable Metrics/LineLength
       end
+
+      c.configure_ltc do |ltc_config|
+        # Created using BIP39 mnemonic 'over dentist endorse dial muscle
+        # decline front canvas initial business fashion priority clay tribe
+        # praise'
+        # See https://iancoleman.io/bip39
+        # rubocop:disable Metrics/LineLength
+        ltc_config.master_public_key = 'xpub68pkF7x1A1b2vX2eGvV3N5u3x4XajvrNUPhVNi5s3W3bFudv5qERiEKABRzEsuqMfj7VGYUFfQGCK4G4r4ciaUynFJLDj3hn7Y4wM6MSaVp'
+        # rubocop:enable Metrics/LineLength
+      end
     end
 
     ActiveRecord::Base.establish_connection(adapter: 'postgresql', database: 'cryptocoin_payable_test')

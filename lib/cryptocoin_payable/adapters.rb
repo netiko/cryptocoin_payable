@@ -19,6 +19,10 @@ module CryptocoinPayable
       @bitcoin_cash_adapter ||= BitcoinCash.new
     end
 
+    def self.litecoin_adapter
+      @litecoin_adapter ||= Litecoin.new
+    end
+
     def self.bitcoin_adapter
       @bitcoin_adapter ||= Bitcoin.new
     end
@@ -33,3 +37,4 @@ require 'cryptocoin_payable/adapters/base'
 require 'cryptocoin_payable/adapters/bitcoin'
 require 'cryptocoin_payable/adapters/bitcoin_cash'
 require 'cryptocoin_payable/adapters/ethereum'
+require 'cryptocoin_payable/adapters/litecoin'

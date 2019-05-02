@@ -9,6 +9,8 @@ module CryptocoinPayable
     end
 
     def perform
+      
+      
 =begin
       rates = CurrencyConversion.coin_types.map do |coin_pair|
         coin_type = coin_pair[0].to_sym

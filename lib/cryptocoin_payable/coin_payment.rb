@@ -22,6 +22,7 @@ module CryptocoinPayable
       btc
       eth
       bch
+      ltc
     ]
 
     state_machine :state, initial: :pending do
