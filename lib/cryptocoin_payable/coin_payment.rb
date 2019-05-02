@@ -22,6 +22,7 @@ module CryptocoinPayable
       btc
       eth
       bch
+      ltc
     ]
 
     state_machine :state, initial: :pending do
@@ -83,15 +84,15 @@ module CryptocoinPayable
     def calculate_coin_amount_due
       adapter.convert_main_to_subunit(currency_amount_due / coin_conversion.to_f).ceil
     end
-
+    
     def coin_conversion
-      @coin_conversion ||= CurrencyConversion.where(coin_type: coin_type).last.price
+      @coin_conversion ||= CurrencyConversion.where(coin_type: coin_type, currency: currency).last.price
     end
-
-    def update_coin_amount_due(rate: coin_conversion)
+    
+    def update_coin_amount_due
       update!(
         coin_amount_due: calculate_coin_amount_due,
-        coin_conversion: rate
+        coin_conversion: coin_conversion
       )
     end
 

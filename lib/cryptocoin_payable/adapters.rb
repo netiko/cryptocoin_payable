@@ -8,6 +8,8 @@ module CryptocoinPayable
         bitcoin_adapter
       when :eth
         ethereum_adapter
+      when :ltc
+        litecoin_adapter
       else
         raise "Invalid coin type #{coin_type}"
       end
@@ -15,6 +17,10 @@ module CryptocoinPayable
 
     def self.bitcoin_cash_adapter
       @bitcoin_cash_adapter ||= BitcoinCash.new
+    end
+
+    def self.litecoin_adapter
+      @litecoin_adapter ||= Litecoin.new
     end
 
     def self.bitcoin_adapter
@@ -31,3 +37,4 @@ require 'cryptocoin_payable/adapters/base'
 require 'cryptocoin_payable/adapters/bitcoin'
 require 'cryptocoin_payable/adapters/bitcoin_cash'
 require 'cryptocoin_payable/adapters/ethereum'
+require 'cryptocoin_payable/adapters/litecoin'
