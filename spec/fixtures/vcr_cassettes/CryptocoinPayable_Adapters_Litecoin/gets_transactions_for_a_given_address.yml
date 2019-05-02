@@ -1,0 +1,140 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://chain.so/api/v2/address/LTC/32FWnMFma5Bcf3MYZ8VoZSpDtFB9sNhbPj
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 26 Apr 2019 10:56:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=df97318ccca0cc6b991828571ede7dcc01556276169; expires=Sat, 25-Apr-20
+        10:56:09 GMT; path=/; domain=.chain.so; HttpOnly
+      - _mkra_ctxt=2393cc7796472c5c0da0b95d8bd61518--200; path=/; max-age=5
+      Status:
+      - 200 OK
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Access-Control-Allow-Methods:
+      - GET,POST
+      Access-Control-Allow-Headers:
+      - Origin,Accept,Content-Type,X-Requested-With,X-CSRF-Token
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Request-Id:
+      - 1d6253bc-677f-43fc-b317-ba85dae9bdc9
+      X-Runtime:
+      - '0.072327'
+      Strict-Transport-Security:
+      - max-age=31536000;includeSubDomains
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Download-Options:
+      - noopen
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4cd80749aaa6cd89-CDG
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "status" : "success",
+          "data" : {
+            "network" : "LTC",
+            "address" : "32FWnMFma5Bcf3MYZ8VoZSpDtFB9sNhbPj",
+            "balance" : "0.00000000",
+            "received_value" : "0.04896269",
+            "pending_value" : "0.00000000",
+            "total_txs" : 1,
+            "txs" : [
+              {
+                "txid" : "63dc29ec55b30483eccae73fb9cedf2624648d7b5e40f2ea54ee9476ac0b1831",
+                "block_no" : 1621183,
+                "confirmations" : 5,
+                "time" : 1556275688,
+                "outgoing" : {
+                  "value" : "0.04896269",
+                  "outputs" : [
+                    {
+                      "output_no" : 0,
+                      "address" : "LYemuay4Sby2nP5KQM1RKnXqaxAkR2tiqn",
+                      "value" : "0.00032004",
+                      "spent" : null
+                    },
+                    {
+                      "output_no" : 1,
+                      "address" : "38sGKFhtwU8WJD778ysEmcEm2ov5AEpDgo",
+                      "value" : "0.04847465",
+                      "spent" : {
+                        "txid" : "ba66c34fb747e4d36e7b61656025d98d6dcbbdd84f7c7b8d5cf272b7b636f881",
+                        "input_no" : 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "txid" : "f76a9147c5b3428092af063c3fd1e54897e78594dd7387e151e153c3544546a4",
+                "block_no" : 1621182,
+                "confirmations" : 6,
+                "time" : 1556275566,
+                "incoming" : {
+                  "output_no" : 1,
+                  "value" : "0.04896269",
+                  "spent" : {
+                    "txid" : "63dc29ec55b30483eccae73fb9cedf2624648d7b5e40f2ea54ee9476ac0b1831",
+                    "input_no" : 0
+                  },
+                  "inputs" : [
+                    {
+                      "input_no" : 0,
+                      "address" : "3KXRzuEcC4Po516uvZ1jbjbup83Ufy5CqB",
+                      "received_from" : {
+                        "txid" : "5c2319764d1206ff8e8cc1f9e474b275f186fdebb4bee6f6d5b2da4a34e6cc0f",
+                        "output_no" : 0
+                      }
+                    }
+                  ],
+                  "req_sigs" : 1,
+                  "script_asm" : "OP_HASH160 0625669cdcebf1c5c6f8f18adf41c0ca20dbdb97 OP_EQUAL",
+                  "script_hex" : "a9140625669cdcebf1c5c6f8f18adf41c0ca20dbdb9787"
+                }
+              }
+            ]
+          },
+          "code" : 200,
+          "message" : ""
+        }
+    http_version: 
+  recorded_at: Fri, 26 Apr 2019 10:56:11 GMT
+recorded_with: VCR 4.0.0

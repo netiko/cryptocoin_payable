@@ -9,7 +9,7 @@ module CryptocoinPayable
   end
 
   class Configuration
-    attr_accessor :testnet, :expire_payments_after, :request_delay, :btc, :bch, :eth
+    attr_accessor :testnet, :expire_payments_after, :request_delay, :btc, :bch, :ltc, :eth
     attr_writer :currency
 
     def currency
@@ -24,6 +24,11 @@ module CryptocoinPayable
     def configure_bch
       @bch ||= BchConfiguration.new
       yield(@bch)
+    end
+
+    def configure_ltc
+      @ltc ||= LtcConfiguration.new
+      yield(@ltc)
     end
 
     def configure_eth
@@ -51,6 +56,12 @@ module CryptocoinPayable
     end
 
     class BchConfiguration < CoinConfiguration
+      def confirmations
+        @confirmations ||= 3
+      end
+    end
+
+    class LtcConfiguration < CoinConfiguration
       def confirmations
         @confirmations ||= 3
       end
