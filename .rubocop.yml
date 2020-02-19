@@ -7,10 +7,10 @@ Layout/MultilineAssignmentLayout:
 Layout/EndAlignment:
   EnforcedStyleAlignWith: variable
 
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
 
-Layout/IndentHash:
+Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 
 Style/Documentation:

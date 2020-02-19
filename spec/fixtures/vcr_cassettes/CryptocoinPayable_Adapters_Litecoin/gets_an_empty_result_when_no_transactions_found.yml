@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://chain.so/api/v2/address/LTC/Lbc8949Dht4Ps7o4B7Nn4Ld4fA6vk19qH3
+    uri: https://api.blockcypher.com/v1/ltc/main/addrs/Lbc8949Dht4Ps7o4B7Nn4Ld4fA6vk19qH3/full
     body:
       encoding: US-ASCII
       string: ''
@@ -28,7 +28,7 @@ http_interactions:
       - keep-alive
       Set-Cookie:
       - __cfduid=d6c62d4feb4126f663f55c031c23e77a71556276172; expires=Sat, 25-Apr-20
-        10:56:12 GMT; path=/; domain=.chain.so; HttpOnly
+        10:56:12 GMT; path=/; domain=.api.blockcypher.com; HttpOnly
       - _mkra_ctxt=cdb6316ee7baa9228508c944dd9d8ea6--200; path=/; max-age=5
       Status:
       - 200 OK
@@ -68,18 +68,16 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "status" : "success",
-          "data" : {
-            "network" : "LTC",
-            "address" : "Lbc8949Dht4Ps7o4B7Nn4Ld4fA6vk19qH3",
-            "balance" : "0.00000000",
-            "received_value" : "0.00000000",
-            "pending_value" : "0.00000000",
-            "total_txs" : 0,
-            "txs" : []
-          },
-          "code" : 200,
-          "message" : ""
+          "address": "3HR9xYD7MybbE7JLVTjwijYse48BtfEKni",
+          "total_received": 500000000,
+          "total_sent": 0,
+          "balance": 500000000,
+          "unconfirmed_balance": 0,
+          "final_balance": 500000000,
+          "n_tx": 2,
+          "unconfirmed_n_tx": 0,
+          "final_n_tx": 2,
+          "txs": []
         }
     http_version: 
   recorded_at: Fri, 26 Apr 2019 10:56:12 GMT

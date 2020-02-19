@@ -18,6 +18,9 @@ module CryptocoinPayable
 
       migration_template 'create_currency_conversions.rb',
         'db/migrate/create_currency_conversions.rb'
+        
+      migration_template 'add_node_path_id_to_coin_payments.rb',
+        'db/migrate/add_node_path_id_to_coin_payments.rb'
     end
 
     def self.next_migration_number(dirname)

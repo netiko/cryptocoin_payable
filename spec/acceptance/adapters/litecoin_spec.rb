@@ -7,12 +7,12 @@ describe CryptocoinPayable::Adapters::Litecoin, :vcr do
     expect(response).to eq(
       [
         {
-          transaction_hash: 'f76a9147c5b3428092af063c3fd1e54897e78594dd7387e151e153c3544546a4',
-          block_hash: nil,
-          block_time: nil,
-          estimated_time: Time.iso8601('2019-04-26T12:46:06.000000000+02:00'),
-          estimated_value: 4_896_269,
-          confirmations: 6
+          transaction_hash: '5bdeaf7829148d7e0e1e7b5233512a2c5ae54ef7ccbc8e68b2f85b7e49c917a0',
+          block_hash: '0000000000000000048e8ea3fdd2c3a59ddcbcf7575f82cb96ce9fd17da9f2f4',
+          block_time: Time.iso8601('2016-09-13T15:41:00Z'),
+          estimated_time: Time.iso8601('2016-09-13T15:33:29.126Z'),
+          estimated_value: 0,
+          confirmations: 116077
         }
       ]
     )
