@@ -115,7 +115,7 @@ module CryptocoinPayable
     end
 
     def populate_address
-      self.node_path_id ||= CryptocoinPayable::CoinPayment.select('node_path_id, MAX(created_at) as max_date').where(coin_type: self.coin_type).group(:node_path_id).having('MAX(created_at) < ?', Time.now - 4.day).order(node_path_id: :asc).first.try(:node_path_id) || ((CryptocoinPayable::CoinPayment.where(coin_type: self.coin_type).order(node_path_id: :desc).first.try(:node_path_id) || 0) + 1)
+      self.node_path_id ||= CryptocoinPayable::CoinPayment.select('node_path_id, MAX(created_at) as max_date').where(coin_type: self.coin_type).group(:node_path_id, :coin_type).having('MAX(created_at) < ?', Time.now - 4.day).order(node_path_id: :asc).first.try(:node_path_id) || ((CryptocoinPayable::CoinPayment.where(coin_type: self.coin_type).where('node_path_id IS NOT NULL').order(node_path_id: :desc).first.try(:node_path_id) || 0) + 1)
       self.address = adapter.create_address(self.node_path_id)
     end
 
