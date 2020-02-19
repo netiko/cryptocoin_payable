@@ -1,3 +1,3 @@
 module CryptocoinPayable
-  VERSION = '1.4.6.4'.freeze
+  VERSION = '1.4.6.5'.freeze
 end

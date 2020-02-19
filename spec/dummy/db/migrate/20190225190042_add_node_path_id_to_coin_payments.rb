@@ -1,7 +1,6 @@
 class AddNodePathIdToCoinPayments < ActiveRecord::Migration[5.1]
   def change
     add_column :coin_payments, :node_path_id, :integer
-    CryptocoinPayable::CoinPayment.update_all('node_path_id = id')
     
     ActiveRecord::Base.connection.add_index :coin_payments, ['coin_type', 'node_path_id', 'created_at'], order: {'coin_type'=>:asc, 'node_path_id'=>:asc, 'created_at'=>:desc}, name: :index_coin_payments_on_coin_type_node_path_id_created_at, using: :btree
 
