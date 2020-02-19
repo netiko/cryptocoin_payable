@@ -11,7 +11,7 @@ module CryptocoinPayable
     validates :coin_type, presence: true
 
     before_create :populate_currency_and_amount_due
-    after_create :populate_address
+    before_create :populate_address
 
     scope :unconfirmed, -> { where(state: %i[pending partial_payment paid_in_full]) }
     scope :unpaid, -> { where(state: %i[pending partial_payment]) }
@@ -115,7 +115,8 @@ module CryptocoinPayable
     end
 
     def populate_address
-      update(address: adapter.create_address(id))
+      self.node_path_id ||= CryptocoinPayable::CoinPayment.select('node_path_id, MAX(created_at) as max_date').where(coin_type: self.coin_type).group(:node_path_id).having('MAX(created_at) < ?', Time.now - 4.day).order(node_path_id: :asc).first.try(:node_path_id) || ((CryptocoinPayable::CoinPayment.all.order(node_path_id: :desc).first.try(:node_path_id) || 0) + 1)
+      self.address = adapter.create_address(self.node_path_id)
     end
 
     def notify_payable_event(event_name)

@@ -3,3 +3,6 @@ test:
   encoding: unicode
   pool: 5
   database: cryptocoin_payable_test
+  username: postgres
+  password: postgres
+  host: localhost

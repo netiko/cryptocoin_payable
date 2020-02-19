@@ -36,8 +36,8 @@ module CryptocoinPayable
     end
 
     def update_transactions_for(payment)
-      transactions = Adapters.for(payment.coin_type).fetch_transactions(payment.address)
-
+      transactions = Adapters.for(payment.coin_type).fetch_transactions(payment.address).select{|transaction|transaction[:estimated_time] > payment.created_at}
+      
       payment.transaction do
         if supports_bulk_insert?
           update_via_bulk_insert(payment, transactions)

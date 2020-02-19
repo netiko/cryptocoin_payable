@@ -5,14 +5,14 @@ require 'cryptocoin_payable/orm/activerecord'
 describe CryptocoinPayable::PaymentProcessor do
   let(:adapter) { CryptocoinPayable::Adapters.bitcoin_adapter }
 
-  def build_fake_transactions_data(count: 10, confirmations: 10)
+  def build_fake_transactions_data(count: 10, confirmations: 10, date: (Time.now + 4.minutes))
     transactions = []
     count.times do |i|
       transactions << {
         transaction_hash: Digest::SHA2.new(256).hexdigest(i.to_s),
         block_hash: '0000000000000000048e8ea3fdd2c3a59ddcbcf7575f82cb96ce9fd17da9f2f4',
-        block_time: Time.iso8601('2016-09-13T15:41:00.000000000+00:00'),
-        estimated_time: Time.iso8601('2016-09-13T15:41:00.000000000+00:00'),
+        block_time: date.iso8601,
+        estimated_time: date.iso8601,
         estimated_value: 499_000_000,
         confirmations: confirmations
       }

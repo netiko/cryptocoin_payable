@@ -23,6 +23,8 @@ def drop_tables
     coin_payments
     currency_conversions
     widgets
+    ar_internal_metadata
+    schema_migrations
   ].each do |table_name|
     ActiveRecord::Base.connection.drop_table(table_name)
   end
@@ -116,7 +118,7 @@ RSpec.configure do |config|
       end
     end
 
-    ActiveRecord::Base.establish_connection(adapter: 'postgresql', database: 'cryptocoin_payable_test')
+    ActiveRecord::Base.establish_connection(adapter: 'postgresql', database: 'cryptocoin_payable_test', username: 'postgres', password: 'postgres', host: 'localhost')
     create_tables
 
     CryptocoinPayable::CurrencyConversion.coin_types.keys.each do |coin_type|
