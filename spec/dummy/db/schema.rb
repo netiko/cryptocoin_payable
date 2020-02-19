@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_190042) do
     t.decimal "coin_conversion", precision: 24
     t.integer "node_path_id"
     #t.index "node_path_id, tsrange(created_at, (created_at + '4 days'::interval), '[]'::text)", name: "unique_node_path_id_within_4_days", using: :gist
-    t.index ["coin_type", "node_path_id", "created_at"], name: "index_coin_payments_on_coin_type_node_path_id_and_created_at", order: { created_at: :desc }
+    t.index ["coin_type", "node_path_id", "created_at"], name: "index_coin_payments_on_coin_type_node_path_id_created_at", order: { created_at: :desc }
     t.index ["payable_type", "payable_id"], name: "index_coin_payments_on_payable_type_and_payable_id"
   end
   
