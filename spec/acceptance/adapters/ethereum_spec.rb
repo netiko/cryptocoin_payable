@@ -57,9 +57,9 @@ describe CryptocoinPayable::Adapters::Ethereum, :vcr do
 
   it 'creates BIP32 addresses' do
     3.times do
-      expect(subject.create_address(0)).to eq('0xcDe321aCfa5B779dCD174850C3FB6E5Ff15cDEAf')
-      expect(subject.create_address(1)).to eq('0x0CA6E0C53EEb559c0D8803076D4F02b72f0FAE9C')
-      expect(subject.create_address(2)).to eq('0xD87D2476c93411242778fe0ef6e758De19ed19E8')
+      expect(subject.create_address(0).to_s).to eq('0xcDe321aCfa5B779dCD174850C3FB6E5Ff15cDEAf')
+      expect(subject.create_address(1).to_s).to eq('0x0CA6E0C53EEb559c0D8803076D4F02b72f0FAE9C')
+      expect(subject.create_address(2).to_s).to eq('0xD87D2476c93411242778fe0ef6e758De19ed19E8')
     end
   end
 end

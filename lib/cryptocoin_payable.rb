@@ -1,3 +1,4 @@
+require 'money-tree'
 module CryptocoinPayable
 end
 
@@ -24,6 +25,7 @@ require 'cryptocoin_payable/version'
 require 'cryptocoin_payable/adapters'
 
 module MoneyTree
+  remove_const(:NETWORKS) if (defined?(NETWORKS))
   NETWORKS =
     begin
       hsh = Hash.new do |_, key|
@@ -82,4 +84,3 @@ module MoneyTree
       hsh
     end
 end
-
