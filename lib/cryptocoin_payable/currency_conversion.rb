@@ -3,12 +3,8 @@ module CryptocoinPayable
     validates :price, presence: true
 
     # TODO: Duplicated in `CoinPayment`.
-    enum coin_type: %i[
-      btc
-      eth
-      bch
-      ltc
-    ]
+    enum :coin_type, [:btc, :eth, :bch, :ltc]
+
     
     # def self.fetch_rates
     #   CurrencyRate.sync_crypto!

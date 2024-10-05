@@ -18,12 +18,7 @@ module CryptocoinPayable
     scope :stale, -> { where('updated_at < ? OR coin_amount_due = 0', 30.minutes.ago) }
 
     # TODO: Duplicated in `CurrencyConversion`.
-    enum coin_type: %i[
-      btc
-      eth
-      bch
-      ltc
-    ]
+    enum :coin_type, [:btc, :eth, :bch, :ltc]
 
     state_machine :state, initial: :pending do
       state :pending
